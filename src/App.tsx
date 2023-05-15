@@ -18,31 +18,26 @@ function App() {
     >
       <InfiLoad
         onBottom={() => {
-          setItems((prev) => [...prev, prev.length]);
+          setItems([...items.slice(1), items[items.length - 1] + 1]);
         }}
         onTop={() => {
-          setItems((prev) => [prev.length, ...prev]);
+          setItems([items[0] - 1, ...items.slice(0, items.length - 1)]);
         }}
       >
         {items.map((i, _) => (
-          // <div
-          //   key={i}
-          //   style={{
-          //     height: 50 + ((Math.abs(i) * 71) % 100),
-          //     width: "100%",
-          //     overflow: "hidden",
-          //     display: "flex",
-          //     alignItems: "center",
-          //     paddingLeft: 20,
-          //     // bg color based on index
-          //     backgroundColor: `hsl(${(i * 173) % 360}, 50%, 60%)`,
-          //   }}
-          // >
-          //   <h1>{i}</h1>
-          // </div>
-          <div key={i}>
-            <h1>{i}</h1>
-          </div>
+          <h1
+            key={i}
+            style={{
+              // fancy colors
+              color: `hsl(${(i * 20) % 360}, 50%, 60%)`,
+              fontSize: 30 + (Math.abs(i ** 3) % 110),
+              // font settings
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            {i}
+          </h1>
         ))}
       </InfiLoad>
     </div>

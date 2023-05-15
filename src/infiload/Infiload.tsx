@@ -58,20 +58,23 @@ export function InfiLoad({
     }
   }
 
+  useEffect(() => {
+    console.log(direction);
+  }, [direction]);
+
+  const topHandler = () => {
+    if (direction === "safeBot") {
+      safeguardTopAdd();
+    }
+  };
+  const bottomHandler = () => {
+    if (direction === "safeTop") {
+      safeguardBottomAdd();
+    }
+  };
+
   const addCb = useCallback(() => {
     if (!ref.current) return;
-
-    const topHandler = () => {
-      if (direction === "safeBot") {
-        safeguardTopAdd();
-      }
-    };
-    const bottomHandler = () => {
-      if (direction === "safeTop") {
-        safeguardBottomAdd();
-      }
-    };
-
     // since we rotated the whole thing around, we have to account for two different "bottoms" and "tops"
     // TOP HANDLER
     if (
@@ -92,7 +95,7 @@ export function InfiLoad({
       bottomHandler();
       onBottom();
     }
-  }, [direction, ref.current]);
+  }, [direction, ref.current, onBottom, onTop, topHandler, bottomHandler]);
 
   useEffect(() => {
     if (ref.current) {
