@@ -220,7 +220,7 @@ function App() {
             <div
               key={i}
               style={{
-                height: 80 + ((Math.abs(i) * 71) % 60),
+                height: 50 + ((Math.abs(i) * 71) % 100),
                 width: "100%",
                 overflow: "hidden",
                 display: "flex",
