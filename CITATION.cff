@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Minimal infinity scrolling with custom dataloaders and data unloaders"
+authors:
+  - family-names: Vukušič
+    given-names: Lan
+title: "infi-load"
+version: 1.2.0
+date-released: 2023-06-08
